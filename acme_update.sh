@@ -4,6 +4,7 @@ CERTIFICATE_DIR=/etc/nginx/ssl
 MIN_VALID_DAYS=7
 ACCOUNT_KEY=/etc/letsencrypt/account.key
 ACME_DIR=/srv/letsencrypt
+PATH=$PATH:$(dirname $0)
 
 test -e /etc/letsencrypt/acme_update.conf && source /etc/letsencrypt/acme_update.conf
 
