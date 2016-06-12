@@ -20,7 +20,7 @@ for CSR in $CERTIFICATE_DIR/*.csr; do
         continue
     fi
     $DEBUG $BIN_DIR/acme_tiny.py --quiet --account-key $ACCOUNT_KEY --csr $CSR  --acme-dir /srv/letsencrypt/ > $CRT.new || continue
-    $DEBUG curl -s https://letsencrypt.org/certs/lets-encrypt-x1-cross-signed.pem >> $CRT.new
+    $DEBUG curl -s https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem >> $CRT.new
     if [ ! -e $CERTIFICATE_DIR/old ]; then mkdir $CERTIFICATE_DIR/old; fi;
     $DEBUG mv $CRT $CRT.old.$DATE
     $DEBUG mv $CRT.old.$DATE $CERTIFICATE_DIR/old
